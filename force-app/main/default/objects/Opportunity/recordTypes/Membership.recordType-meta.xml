@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Membership</fullName>
+    <active>false</active>
+    <businessProcess>Donation</businessProcess>
+    <description>A membership record type</description>
+    <label>Membership</label>
+    <picklistValues>
+        <picklist>Cage_free_Commitment__c</picklist>
+        <values>
+            <fullName>Full Asia commitment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No Asia commitment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Partial Asia commitment</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Equitas_Progress__c</picklist>
+        <values>
+            <fullName>1%29 Preparation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2%29 Go Live</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3%29 Closing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>4%29 Completed</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Food_Industry_Sector_Opportunity__c</picklist>
+        <values>
+            <fullName>Bakery</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Distributor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hospitality</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Multiple</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Packaged Goods</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Restaurant or Cafes</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Retailer or Convenience</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>ForecastCategoryName</picklist>
+        <values>
+            <fullName>Best Case</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Closed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Commit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omitted</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pipeline</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>LeadSource</picklist>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Partner Referral</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Phone Inquiry</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Purchased List</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Web</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>LiyTse_Engagement_Actions__c</picklist>
+        <values>
+            <fullName>Close to end</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cold Visit-met</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cold visit- failed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Confronting</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Equitas in action</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Met</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reachout message sent</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Replied</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Research completed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Researching</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Soft pressure</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>smoothly progressing</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Readiness_to_switch__c</picklist>
+        <values>
+            <fullName>1%29 Rejected</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2%29 Not ready</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3%29 Considering</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>4%29 Ready</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>5%29 Switching</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type</picklist>
+        <values>
+            <fullName>Existing Funding</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New Funding</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type_of_Public_Engagement__c</picklist>
+        <values>
+            <fullName>Celebrity Activity</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Conference</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Interview</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Others</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Press Conference</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Press Release</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Protests</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Social Media</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>npe01__Member_Level__c</picklist>
+        <values>
+            <fullName>Bronze</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Gold</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Silver</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>npe01__Membership_Origin__c</picklist>
+        <values>
+            <fullName>New</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reacquire</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Renewal</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>npo02__systemHouseholdContactRoleProcessor__c</picklist>
+        <values>
+            <fullName>All Opportunities</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>No Opportunities</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>npsp__Acknowledgment_Status__c</picklist>
+        <values>
+            <fullName>Acknowledged</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Do Not Acknowledge</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Email Acknowledgment Not Sent</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Email Acknowledgment Now</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>To Be Acknowledged</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>npsp__Tribute_Notification_Status__c</picklist>
+        <values>
+            <fullName>Notified</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>To Be Notified</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>npsp__Tribute_Type__c</picklist>
+        <values>
+            <fullName>Honor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Memorial</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

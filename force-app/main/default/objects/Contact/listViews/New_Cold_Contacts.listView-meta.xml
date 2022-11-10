@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>New_Cold_Contacts</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>Account.Trade_Name__c</columns>
+    <columns>List_Email_field_1__c</columns>
+    <columns>FULL_NAME</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CORE.USERS.ALIAS</field>
+        <operation>contains</operation>
+        <value>Angela</value>
+    </filters>
+    <label>New Cold Contacts</label>
+</ListView>

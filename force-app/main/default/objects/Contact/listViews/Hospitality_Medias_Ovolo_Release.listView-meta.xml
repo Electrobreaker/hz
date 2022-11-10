@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Hospitality_Medias_Ovolo_Release</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>ACCOUNT.URL</columns>
+    <columns>FULL_NAME</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>Note_on_Email__c</columns>
+    <columns>Contact_Notes__c</columns>
+    <columns>List_Email_field_1__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CORE.USERS.LAST_NAME</field>
+        <operation>equals</operation>
+        <value>Tse</value>
+    </filters>
+    <filters>
+        <field>Account.Type_of_Entity__c</field>
+        <operation>equals</operation>
+        <value>Media</value>
+    </filters>
+    <filters>
+        <field>Account.Food_Industry_Sector__c</field>
+        <operation>includes</operation>
+        <value>Hospitality,Other</value>
+    </filters>
+    <filters>
+        <field>FULL_NAME</field>
+        <operation>notContain</operation>
+        <value>general</value>
+    </filters>
+    <filters>
+        <field>CONTACT.EMAIL</field>
+        <operation>notEqual</operation>
+    </filters>
+    <label>Hospitality Medias_Ovolo Release</label>
+</ListView>

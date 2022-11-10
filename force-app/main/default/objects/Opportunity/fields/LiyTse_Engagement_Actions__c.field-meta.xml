@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LiyTse_Engagement_Actions__c</fullName>
+    <externalId>false</externalId>
+    <label>LiyTse Engagement Actions</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Researching</fullName>
+                <default>false</default>
+                <label>Researching</label>
+            </value>
+            <value>
+                <fullName>Research completed</fullName>
+                <default>false</default>
+                <label>Research completed</label>
+            </value>
+            <value>
+                <fullName>Reachout message sent</fullName>
+                <default>false</default>
+                <label>Reachout message sent</label>
+            </value>
+            <value>
+                <fullName>Replied</fullName>
+                <default>false</default>
+                <label>Replied</label>
+            </value>
+            <value>
+                <fullName>Cold Visit-met</fullName>
+                <default>false</default>
+                <label>Cold Visit-met</label>
+            </value>
+            <value>
+                <fullName>Cold visit- failed</fullName>
+                <default>false</default>
+                <label>Cold visit- failed</label>
+            </value>
+            <value>
+                <fullName>Materials Sent</fullName>
+                <default>false</default>
+                <label>Materials Sent</label>
+            </value>
+            <value>
+                <fullName>To-be Met</fullName>
+                <default>false</default>
+                <label>To-be Met</label>
+            </value>
+            <value>
+                <fullName>Met</fullName>
+                <default>false</default>
+                <label>Met</label>
+            </value>
+            <value>
+                <fullName>Soft pressure</fullName>
+                <default>false</default>
+                <label>Soft pressure</label>
+            </value>
+            <value>
+                <fullName>smoothly progressing</fullName>
+                <default>false</default>
+                <label>smoothly progressing</label>
+            </value>
+            <value>
+                <fullName>Equitas in action</fullName>
+                <default>false</default>
+                <label>Equitas in action</label>
+            </value>
+            <value>
+                <fullName>Confronting</fullName>
+                <default>false</default>
+                <label>Confronting</label>
+            </value>
+            <value>
+                <fullName>Close to end</fullName>
+                <default>false</default>
+                <label>Close to end</label>
+            </value>
+            <value>
+                <fullName>Declined - to be continued</fullName>
+                <default>false</default>
+                <label>Declined - to be continued</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>10</visibleLines>
+</CustomField>

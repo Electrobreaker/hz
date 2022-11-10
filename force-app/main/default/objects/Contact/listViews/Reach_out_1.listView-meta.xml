@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reach_out_1</fullName>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.PHONE1</columns>
+    <columns>List_Email_field_1__c</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>FULL_NAME</field>
+        <operation>contains</operation>
+        <value>general</value>
+    </filters>
+    <filters>
+        <field>ACCOUNT.OWNER.FIRST_NAME</field>
+        <operation>equals</operation>
+        <value>kirsty</value>
+    </filters>
+    <label>Reach out 1</label>
+</ListView>

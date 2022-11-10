@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Custom_Field_View</fullName>
+    <columns>ACCOUNT.LAST_UPDATE</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>Food_Industry_Sector__c</columns>
+    <columns>LilyTse_Company_Label__c</columns>
+    <columns>LilyTse_Engag_Label_Link_to_Company__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>ACCOUNT.ADDRESS1_COUNTRY</field>
+        <operation>equals</operation>
+    </filters>
+    <label>Custom Field View</label>
+</ListView>

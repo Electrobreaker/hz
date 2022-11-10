@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_Auto_process_Readiness_to_switch__c</fullName>
+    <externalId>false</externalId>
+    <label>Account Auto-process Readiness to switch</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>1) Rejected</fullName>
+                <default>false</default>
+                <label>1) Rejected</label>
+            </value>
+            <value>
+                <fullName>2) Not ready</fullName>
+                <default>false</default>
+                <label>2) Not ready</label>
+            </value>
+            <value>
+                <fullName>3) Considering</fullName>
+                <default>false</default>
+                <label>3) Considering</label>
+            </value>
+            <value>
+                <fullName>4) Ready</fullName>
+                <default>false</default>
+                <label>4) Ready</label>
+            </value>
+            <value>
+                <fullName>5) Switching</fullName>
+                <default>false</default>
+                <label>5) Switching</label>
+            </value>
+            <value>
+                <fullName>6) Switched</fullName>
+                <default>false</default>
+                <label>6) Switched</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

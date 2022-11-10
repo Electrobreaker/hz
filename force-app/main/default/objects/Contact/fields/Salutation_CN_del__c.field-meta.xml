@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Salutation_CN_del__c</fullName>
+    <externalId>false</externalId>
+    <label>Salutation(CN)</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>先生</fullName>
+                <default>false</default>
+                <label>先生</label>
+            </value>
+            <value>
+                <fullName>女士</fullName>
+                <default>false</default>
+                <label>女士</label>
+            </value>
+            <value>
+                <fullName>总</fullName>
+                <default>false</default>
+                <label>总</label>
+            </value>
+            <value>
+                <fullName>经理</fullName>
+                <default>false</default>
+                <label>经理</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NPSP_Donation_Compact_Layout_Unmanaged</fullName>
+    <fields>Name</fields>
+    <fields>Equitas_Progress__c</fields>
+    <fields>AccountId</fields>
+    <fields>StageName</fields>
+    <fields>CloseDate</fields>
+    <fields>OwnerId</fields>
+    <fields>NextStep</fields>
+    <label>NPSP Donation Compact Layout (Unmanaged)</label>
+</CompactLayout>

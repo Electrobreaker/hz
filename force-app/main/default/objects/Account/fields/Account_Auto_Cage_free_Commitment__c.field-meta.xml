@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_Auto_Cage_free_Commitment__c</fullName>
+    <externalId>false</externalId>
+    <label>Account Auto Cage-free Commitment</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Full Asia commitment</fullName>
+                <default>false</default>
+                <label>Full Asia commitment</label>
+            </value>
+            <value>
+                <fullName>Partial Asia commitment</fullName>
+                <default>false</default>
+                <label>Partial Asia commitment</label>
+            </value>
+            <value>
+                <fullName>No Asia commitment</fullName>
+                <default>false</default>
+                <label>No Asia commitment</label>
+            </value>
+            <value>
+                <fullName>Committed US and/or EU but not elsewhere</fullName>
+                <default>false</default>
+                <label>Committed US and/or EU but not elsewhere</label>
+            </value>
+            <value>
+                <fullName>Committed for company-owned operations but not franchisees</fullName>
+                <default>false</default>
+                <label>Committed for company-owned operations but not franchisees</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

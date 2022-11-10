@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_Contacts</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>FULL_NAME</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>ACCOUNT.LAST_ACTIVITY</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>Left_the_Company_del__c</columns>
+    <columns>CONTACT.ADDRESS1_COUNTRY</columns>
+    <columns>Account.Need_Open_Engagement_Case__c</columns>
+    <columns>npsp__Do_Not_Contact__c</columns>
+    <columns>Linkedin_FB_Others__c</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>CONTACT.EMAIL</field>
+        <operation>notContain</operation>
+        <value>@</value>
+    </filters>
+    <filters>
+        <field>Account.Need_Open_Engagement_Case__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <filters>
+        <field>Left_the_Company_del__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>Account.DoNotContact__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>npsp__Do_Not_Contact__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>ACCOUNT.LAST_ACTIVITY</field>
+        <operation>lessThan</operation>
+        <value>6/1/2022</value>
+    </filters>
+    <filters>
+        <field>Account.Trade_Name__c</field>
+        <operation>notContain</operation>
+        <value>AmRest,Aroma,LSG,Mondelez,ABF,Wok to Walk,Denny’s,Burger Fuel,Auchan,Lee’s,Delaware,Coffee Bean &amp; Tea Leaf,Rich Products,Columbus Cafe,dean&amp;David,Pita Pit,Dairy Queen,Original Pancake,Blue Bottle Coffee,Landry’s,Mikel,Smoothie King</value>
+    </filters>
+    <filters>
+        <field>Account.Trade_Name__c</field>
+        <operation>notContain</operation>
+        <value>Ameron Hotels,Hard Rock Cafe,Dussmann,Danisa,Circle K,Coffee Island,Nando’s,Mars,McDonalds,TGI Friday’s,Disney,7-11,Spar,Bakkavor,Wonderful Company,Ocado,Segafredo,Ahold,Starbucks,Cremonini,AB Mauri,Carrefour,DIA,Brotzeit</value>
+    </filters>
+    <filters>
+        <field>Account.Trade_Name__c</field>
+        <operation>notContain</operation>
+        <value>Arytza,Menchies,Retail Food Group,Dutch Bros,Aroma,Sumo Salad,Din Fai Fung,FoodCo,Gategroup,Crepes &amp; Waffles,Second Cup,Tchibo,SSP,Nikki Beach,Travelodge,Steak Escape,Caffe Pascucci,Smokes Poutinerie</value>
+    </filters>
+    <filters>
+        <field>Account.Trade_Name__c</field>
+        <operation>notContain</operation>
+        <value>The Human Bean,Dippin’ Dots,Coffee Planet,BRIX,BreadTalk,Esquires Coffee,Biggby Coffee,Do &amp; CoChili’s,Monster Curry,On The Border,Recipe Unlimited,Lawry’s,Prime Rib,Wall’s,Sysco,Aryzta</value>
+    </filters>
+    <label>Kirsty&apos;s Contacts No Email</label>
+</ListView>

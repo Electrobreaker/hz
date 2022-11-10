@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>US_Time_Zone__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(BillingState = &quot;Virginia&quot; || CONTAINS(BillingState, &quot;Carolina&quot;) || BillingState=&quot;Pennsylvania&quot; || BillingState=&quot;New York&quot; || BillingState=&quot;Vermont&quot; || BillingState=&quot;Maine&quot; || BillingState=&quot;Michigan&quot; || BillingState=&quot;Indiana&quot; || BillingState=&quot;Kentucky&quot; || BillingState=&quot;Georgia&quot; || BillingState=&quot;Florida&quot; || BillingState=&quot;Ohio&quot; || BillingState=&quot;West Virginia&quot;|| BillingState=&quot;New Hampshire&quot;|| BillingState=&quot;Massachusetts&quot;|| BillingState=&quot;Rhode Island&quot;|| BillingState=&quot;Connecticut&quot;|| BillingState=&quot;New Jersey&quot;|| BillingState=&quot;Delaware&quot;|| BillingState=&quot;Maryland&quot;|| BillingState=&quot;District of Columbia&quot;, &quot;Eastern&quot;,
+
+ IF(BillingState = &quot;South Dakota&quot; || BillingState = &quot;North Dakota&quot; || BillingState=&quot;Nebraska&quot; || BillingState=&quot;Kansas&quot; || BillingState=&quot;Oklahoma&quot; || BillingState=&quot;Texas&quot; || BillingState=&quot;Minnesota&quot; || BillingState=&quot;Iowa&quot; || BillingState=&quot;Missouri&quot; || BillingState=&quot;Arkansas&quot; || BillingState=&quot;Louisiana&quot; || BillingState=&quot;Wisconsin&quot; || BillingState=&quot;Illinois&quot;|| BillingState=&quot;Tennessee&quot;|| BillingState=&quot;Mississippi&quot;|| BillingState=&quot;Alabama&quot;, &quot;Central&quot;, &quot;&quot;
+)
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>US Time Zone</label>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>npsp__AllAccounts</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>ACCOUNT.ADDRESS1_COUNTRY</columns>
+    <columns>Detailed_info_country_ops__c</columns>
+    <columns>Need_Open_Engagement_Case__c</columns>
+    <columns>ACCOUNT.PHONE1</columns>
+    <columns>DoNotContact__c</columns>
+    <columns>ACCOUNT.LAST_ACTIVITY</columns>
+    <columns>ACCOUNT.CREATED_DATE</columns>
+    <columns>ACCOUNT.ADDRESS1_STATE</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>ACCOUNT.ADDRESS1_COUNTRY</field>
+        <operation>equals</operation>
+        <value>United States,USA,US</value>
+    </filters>
+    <filters>
+        <field>ACCOUNT.ADDRESS1_STATE</field>
+        <operation>equals</operation>
+        <value>California,Idaho,Nevada,Oregon,Washington,CA,OR,WA,NV,ID</value>
+    </filters>
+    <label>Kirsty USA Pacific Time companies</label>
+</ListView>

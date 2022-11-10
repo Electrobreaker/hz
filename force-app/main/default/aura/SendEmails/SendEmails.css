@@ -1,0 +1,47 @@
+.THIS .slds-leftpad{
+	padding-left: 2rem;
+}
+.THIS .iconheight{
+    top: 70%;
+}
+
+.THIS .leftspace input {
+    padding-left:2rem;
+}
+
+.THIS .dimensions {
+    height: fit-content;
+}
+
+.THIS {
+    font-family: 'Lato';
+}
+
+.THIS.slds-spinner_container {  
+    /* z-index: 10000; */
+    position: fixed;   
+}
+
+@font-face
+{
+    font-family:'Lato';
+    src:url(/resource/Lato);
+}
+
+.THIS#body {
+    background-color: white;
+    height: fit-content;
+    /* padding-bottom: 4%; */
+}
+
+.THIS .accordionLabel .slds-accordion__summary-content {
+    font-size: 80%;
+}
+
+.THIS .accordionLabel .slds-accordion__section {
+    width: 170%;
+}
+
+.THIS .canEnter .ql-editor.slds-rich-text-area__content {
+    min-height: 30rem;
+}

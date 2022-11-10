@@ -1,0 +1,303 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId,force:appHostable,lightning:isUrlAddressable,flexipage:availableForAllPageTypes" 
+                access="global"
+                controller="SendEmailController">
+    
+    <aura:attribute name="listOfContacts" type="List" />
+
+    <aura:attribute name="isSearching" type="Boolean" default="false"/>
+    <aura:attribute name="spinner" type="Boolean" default="false"/>
+    <aura:attribute name="contacts" type="List"/>
+    <aura:attribute name="searchRecords" type="List"/>
+    <aura:attribute name="LoadingText" type="Boolean" default="false"/>
+    <aura:attribute name="emailSubject" type="String"/>
+    <aura:attribute name="emailBody" type="String"/>
+    <aura:attribute name="mergedEmailBody" type="String"/>
+
+    <aura:attribute name="selectedContact" type="String"/>
+    <aura:attribute name="contactFields" type="List"/>
+    <aura:attribute name="recipients" type="List"/>
+    <aura:attribute name="listViews" type="List"/>
+    
+    <aura:attribute name="listViewContacts" type="List"/>
+    <aura:attribute name="isMergeModalOpen" type="Boolean"/>
+    <aura:attribute name="isTemplateModalOpen" type="Boolean"/>
+    <aura:attribute name="isFileModalOpen" type="Boolean"/>
+    <aura:attribute name="isScheduleModalOpen" type="Boolean"/>
+    <aura:attribute name="mergedField" type="String"/>
+
+    <aura:attribute name="templateFolders" type="Set"/>
+    <aura:attribute name="activeFolder" type="List"/>
+    <aura:attribute name="activeTemplate" type="Object"/>
+
+    <aura:attribute name="date" type="Date"/>
+    <aura:attribute name="time" type="Time"/>
+    <aura:attribute name="contactAPI" type="String" default="Contact"/>
+
+    <aura:attribute name="scheduledDate" type="Date"/>
+    <aura:attribute name="scheduledTime" type="Time"/>
+
+    <aura:attribute name="filetypes" type="List" default="['.png', '.jpg', '.jpeg']"/>
+    <aura:attribute name="recordWithFiles" type="String"/>
+    <aura:attribute name="contactsCopy" type="List" />
+    <aura:attribute name="files" type="List"/>
+
+
+    <lightning:notificationsLibrary aura:id="notifLib"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler name="change" value="{!v.contacts}" action="{!c.contactsChange}"/>
+    <aura:handler name="change" value="{!v.mergedField}" action="{!c.insertMergedFiled}"/>
+
+        <div class="slds-box slds-theme_default">
+            <div class="slds-form-element">
+                <div class="slds-form-element__control dimensions">
+                    <!-- * Contacts pills -->
+                    <div>
+                        <aura:iteration items="{!v.contacts}" var="record">
+                            <lightning:pill class="slds-m-bottom_xx-small slds-m-left_none slds-m-right_xx-small" name="{!record.recId}"
+                                label="{!record.recName}" onremove="{!c.handleRemoveContact}">
+                                <aura:set attribute="media">
+                                    <lightning:icon iconName="standard:contact" alternativeText="Contact" />
+                                </aura:set>
+                            </lightning:pill>
+                        </aura:iteration>
+                    </div><!-- * Contacts pills -->
+                    <!-- * Search input -->
+                    <div class="slds-combobox_container">
+                        <div class="slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click" aura:id="resultBox" aria-expanded="false" aria-haspopup="listbox" role="combobox">
+                            <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon slds-input-has-icon_left-right" role="none">
+                                <lightning:input aura:id="userinput" 
+                                                 name="searchText"
+                                                 onchange="{!c.searchField}" 
+                                                 autocomplete="off" 
+                                                 class="leftspace" 
+                                                 placeholder="Search Contact by Name"
+                                                 label="Search Contacts:"/>
+                                <span class="slds-icon_container slds-icon-utility-search slds-input__icon slds-input__icon_left" style="top: 70%;">
+                                    <lightning:icon class="slds-icon slds-icon_small slds-icon-text-default" iconName="utility:search" size="x-small" alternativeText="icon" />
+                                </span>
+                            </div>
+                            
+                            <!--* display result -->
+                            <div id="listbox-id-1" class="slds-dropdown slds-dropdown_length-with-icon-7 slds-dropdown_fluid" role="listbox">
+                                <ul class="slds-listbox slds-listbox_vertical" role="presentation">
+                                    <aura:iteration items="{!v.searchRecords}" var="serecord" indexVar="hdtv">
+                                        <li role="presentation" class="slds-listbox__item">
+                                            
+                                            <div id="{!serecord.recId}" 
+                                                 data-name="{!serecord.recName}" 
+                                                 data-object-name="{!serecord.objectName}"
+                                                 onclick="{!c.setSelectedRecord}" 
+                                                 class="slds-media slds-listbox__option slds-listbox__option_entity slds-listbox__option_has-meta" role="option">
+                                                <span class="slds-media__figure">
+                                                    <span class="slds-icon_container">
+                                                        <lightning:icon iconName="standard:contact" size="small"/>
+                                                    </span>
+                                                </span>
+                                                <span class="slds-media__body">
+                                                    <span class="slds-listbox__option-text slds-listbox__option-text_entity">{!serecord.recName}</span>
+                                                    <span class="slds-listbox__option-meta slds-listbox__option-meta_entity">{!serecord.objectName} • {!serecord.accountName}</span>
+                                                </span>
+                                            </div>
+                                        </li>
+                                    </aura:iteration>
+                                    <aura:if isTrue="{!and(v.searchRecords.length == 0 , !v.LoadingText)}">
+                                        <div class="slds-m-left_x-large">No result found.</div>
+                                    </aura:if>
+                                    <aura:if isTrue="{!v.LoadingText}">
+                                        <div class="slds-m-left_x-large">Loading...</div>
+                                    </aura:if>
+                                </ul>
+                            </div><!--* display result -->
+                        </div>
+                    </div><!-- * Search input -->
+                    <!-- * subject input -->
+                    <lightning:input required="true" 
+                                     placeholder="Enter Email Subject" 
+                                     name="SubjectInput" 
+                                     label="Email Subject:" 
+                                     value="{!v.emailSubject}"/>
+                    <!-- * subject input -->
+                    <!-- * TABSET with edit email content and preview recipients -->
+                    <lightning:tabset selectedTabId="two">
+                        <lightning:tab label="Content" id="one">
+                            <div class="canEnter">
+                                <lightning:inputRichText value="{!v.emailBody}" placeholder="Type something interesting">
+                                	<force:quillButtonLink/>
+                                </lightning:inputRichText>
+                                <!--*______________________________________________________________________________________________  -->
+                                <aura:iteration items="{!v.files}" var="file">
+                                    <div class="slds-m-top_x-small">
+                                        <lightning:pill class="slds-m-bottom_xx-small slds-m-left_none slds-m-right_xx-small" 
+                                                        name="{!file.documentId}"
+                                                        label="{!file.name}" 
+                                                        onremove="{!c.handleRemoveFile}">
+                                            <aura:set attribute="media">
+                                                <lightning:icon iconName="doctype:attachment" size="large" alternativeText="File Attachment" />
+                                            </aura:set>
+                                        </lightning:pill>
+                                    </div>
+                                </aura:iteration>
+                                <!--*______________________________________________________________________________________________  -->
+                                <div class="slds-m-top_xx-small" style="width: fit-content;">
+                                    <span>
+                                        <lightning:buttonIcon iconName="utility:merge_field"  variant="border-filled" alternativeText="Merge field" title="Merge field" onclick="{!c.openMergeFieldsModal}"/>
+                                        <lightning:buttonIcon iconName="utility:insert_template"  variant="border-filled" alternativeText="Insert Template" title="Insert Template" onclick="{!c.openInsertTemplateModal}"/>
+                                        <lightning:buttonIcon iconName="utility:attach"  variant="border-filled" alternativeText="Attach File" title="Insert Template" onclick="{!c.openFileModal}"/>
+                                    </span>
+                                </div> 
+                            </div>
+                        </lightning:tab>
+                        <lightning:tab label="Review" id="two">
+                            <div class="slds-grid">
+                                <div class="slds-col slds-size_1-of-4">
+                                    <div class="accordionLabel">
+                                        <lightning:accordion aura:id="recipientsAccordion" allowMultipleSectionsOpen="true" activeSectionName="singleContacts">
+                                            <lightning:accordionSection class="slds-size_xx-small" name="singleContacts" label="Selected Recipients">
+                                                <aura:iteration items="{!v.contacts}" var="contact">
+                                                    <aura:if isTrue="{!v.contactAPI == contact.objectName}">
+                                                        <div id="{!contact.recId}" onclick="{!c.setPreviewBody}" class="{!contact.recId}">
+                                                            <p>{!contact.recName}</p>
+                                                        </div>
+                                                    </aura:if>
+                                                </aura:iteration>
+                                            </lightning:accordionSection>
+                                            <aura:iteration items="{!v.listViewContacts}" var="mapKey" indexVar="key">
+                                                <lightning:accordionSection class="slds-size_xx-small" label="{!mapKey.key}">
+                                                    <aura:iteration items="{!mapKey.value}" var="contact">
+                                                        <div id="{!contact.Id}" onclick="{!c.setPreviewBody}" class="{!contact.Id}">
+                                                            <p>{!contact.Name}</p>
+                                                        </div>
+                                                    </aura:iteration>
+                                                </lightning:accordionSection>
+                                            </aura:iteration>
+                                        </lightning:accordion>
+                                    </div>
+                                </div>
+                                <div class="slsd-col slds-size_3-of-4">
+                                    <ui:outputRichText value="{!v.mergedEmailBody}"/>
+                                </div>
+                            </div>
+                        </lightning:tab>
+                    </lightning:tabset><!-- * TABSET with edit email content and preview recipients -->
+                    <footer class="slds-modal__footer">
+                        <!-- <lightning:button variant="neutral" label="Save as Draft" title="Draft" onclick="{!c.saveAsDraft}"/> -->
+                        <lightning:button variant="neutral" label="Send Later" title="Scheduled Email" onclick="{!c.sendLater}"/>
+                        <lightning:button variant="brand" label="Send" title="Send Email" onclick="{!c.sendEmail}"/>
+                    </footer>
+                </div>
+            </div>
+        </div>
+
+        <c:MergeFieldsModal allContactFields="{!v.contactFields}" isOpen="{!v.isMergeModalOpen}" choosedField="{!v.mergedField}"/>
+        <!-- <c:InsertTemplateModal isOpen="{!v.isTemplateModalOpen}"/> -->
+
+    <!--*______________________________Email Template Modal____________-->
+    <aura:if isTrue="{!v.isTemplateModalOpen}">
+        <section role="dialog" tabindex="-1" aria-labelledby="header43" aria-hidden="true" aura:id="TemplateContainer"
+            class="slds-modal slds-fade-in-open slds-backdrop slds-backdrop--open">
+            <div class="slds-modal__container" style="width: 50%;">
+                <header class="slds-modal__header">
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close">
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                    <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">Email templates</h2>
+                </header>
+        
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1" style="height:60% !important;">
+                    <div> <!--  style="height: 500px" -->
+                        <lightning:select name="folderId" label="Folder:" aura:id="folderId" onchange="{!c.onChangeFolder}">
+                            <aura:iteration items="{!v.templateFolders}" var="folder" indexVar="index">
+                                <option value="{!index}">{!folder}</option>
+                            </aura:iteration>
+                        </lightning:select>
+                        <lightning:select name="templateId" label="Template:" aura:id="templateId"
+                            onchange="{!c.onChangeTemplate}">
+                            <aura:iteration items="{!v.activeFolder}" var="template" indexVar="index">
+                                <option value="{!index}">{!template.name}</option>
+                            </aura:iteration>
+                        </lightning:select>
+                        <lightning:card variant="Narrow" title="Template:">
+                            <p class="slds-truncate">Name: {!v.activeTemplate.name}</p>
+                            <p class="slds-truncate">Subject: {!v.activeTemplate.subject}</p>
+                        </lightning:card>
+        
+                        <lightning:card variant="Narrow" title="Body" iconName="standard:email">
+                            <div class="slds-box">
+                                <ui:outputRichText class="slds-text-longform hui" value="{!v.activeTemplate.body}" />
+                            </div>
+                        </lightning:card>
+        
+                    </div>
+                </div>
+                <footer class="slds-modal__footer">
+                    <lightning:button label="Close" onclick="{!c.closeTemplatesModal}" variant="brand"/>
+                    <lightning:button variant="neutral" label="Confirm" title="Confirm" onclick="{!c.confirmTemplate}"/>
+                </footer>
+            </div>
+        </section>
+    </aura:if>
+
+    <!--*______________________________Attch file Modal____________-->
+    <aura:if isTrue="{!v.isFileModalOpen}">
+        <section role="dialog" tabindex="-1" aria-labelledby="header43" aria-hidden="true" aura:id="TemplateContainer"
+            class="slds-modal slds-fade-in-open slds-backdrop slds-backdrop--open">
+            <div class="slds-modal__container" style="width: 40%;">
+
+                <header class="slds-modal__header">
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close">
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                    <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">Attach file</h2>
+                </header>
+        
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <div class="slds-align_absolute-center"> <!--  style="height: 500px" -->
+                        <lightning:fileUpload name="file1"
+                                        label="File Attachments"
+                                        multiple="true"
+                                        onuploadfinished="{!c.handleUploadFinished}"/>
+                    </div>
+                </div>
+                <footer class="slds-modal__footer">
+                    <lightning:button label="Close" onclick="{!c.closeFileModal}" variant="brand"/>
+                    <!-- <lightning:button variant="neutral" label="Confirm" title="Confirm" onclick="{!c.attachFile}"/> -->
+                </footer>
+            </div>
+        </section>
+    </aura:if>
+
+    <!--*______________________________Scheduled Email Modal____________-->
+    <aura:if isTrue="{!v.isScheduleModalOpen}">
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <header class="slds-modal__header">
+                        <lightning:buttonIcon iconName="utility:close"
+                                              onclick="{!c.scheduleCloseModal}"
+                                              alternativeText="close"
+                                              variant="bare-inverse"
+                                              class="slds-modal__close"/>
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Choose a date and time</h2>
+                    </header>
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                        <div class="slds-p-around_medium">
+                            <ui:inputDateTime aura:id="scheduledDate" label="Email Send Date" class="" value="" displayDatePicker="true"/>
+                        </div>
+                    </div>
+                    <footer class="slds-modal__footer">
+                        <lightning:button variant="neutral" 
+                                          label="Cancel"
+                                          title="Cancel"
+                                          onclick="{!c.scheduleCloseModal}"/>
+                                          
+                        <lightning:button variant="brand"
+                                          disabled="{!v.spinner}"
+                                          label="Send"
+                                          title="Send"
+                                          onclick="{!c.submitScheduledEmail}"/>
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+    </aura:if>
+</aura:component>

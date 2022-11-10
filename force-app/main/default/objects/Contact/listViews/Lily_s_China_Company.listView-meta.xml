@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lily_s_China_Company</fullName>
+    <columns>List_Email_field_4__c</columns>
+    <columns>List_Email_field_2__c</columns>
+    <columns>Account.Account_Name_CN__c</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>List_Email_field_3__c</columns>
+    <columns>FULL_NAME</columns>
+    <columns>Last_Name_CN__c</columns>
+    <columns>First_Name_CN__c</columns>
+    <columns>Department_picklist__c</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>Linkedin_FB_Others__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>ACCOUNT.OWNER.LAST_NAME</field>
+        <operation>contains</operation>
+        <value>Huang</value>
+    </filters>
+    <filters>
+        <field>Account.Food_Industry_Sector__c</field>
+        <operation>equals</operation>
+        <value>Retailer or Convenience</value>
+    </filters>
+    <label>Lily&apos;s China Company</label>
+</ListView>

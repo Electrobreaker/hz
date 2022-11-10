@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Size_of_company__c</fullName>
+    <externalId>false</externalId>
+    <label>Size of company</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Less than 100 operations outside the West</fullName>
+                <default>false</default>
+                <label>Less than 100 operations outside the West</label>
+            </value>
+            <value>
+                <fullName>More than 100 operations outside the West</fullName>
+                <default>false</default>
+                <label>More than 100 operations outside the West</label>
+            </value>
+            <value>
+                <fullName>More than 500 operations outside the West</fullName>
+                <default>false</default>
+                <label>More than 500 operations outside the West</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>
